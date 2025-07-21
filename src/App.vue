@@ -25,8 +25,10 @@ const storeAnswer = (answer) => {
 const startQuiz = async (topic) => {
   status.value = 'loading';
   
-  const ai = new GoogleGenerativeAI("AIzaSyBD9I-BDAYSyJ_H4ISUYgnPIaQnkHPxmmE");
-  
+ const apiKey = import.meta.env.VITE_API_KEY;
+
+  const genAI = new GoogleGenerativeAI( apiKey );
+
   const schema = {
     description: "List of quiz questions",
     type: SchemaType.OBJECT,
@@ -92,7 +94,7 @@ const startQuiz = async (topic) => {
     required: ["response_code", "results"],
   };
 
-  const model = ai.getGenerativeModel({
+  const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     generationConfig: {
       responseMimeType: "application/json",
