@@ -122,7 +122,7 @@ const startQuiz = async (topic) => {
     <header>
       <div class="container">
         <img src="./assets/logo.png" alt="App Logo" class="logo">
-        <h1>Quiz Generator</h1>
+        <h1>Quiz Vector</h1>
       </div>
     </header>
     
